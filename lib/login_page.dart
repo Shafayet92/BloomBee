@@ -110,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
             ]),
           ]),
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
         Container(
@@ -118,9 +118,9 @@ class _LoginPageState extends State<LoginPage> {
           height: h * 0.07,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage("img/loginbtn.png"), fit: BoxFit.cover)),
-          child: Center(
+          child: const Center(
             child: Text(
               "Sign in",
               style: TextStyle(

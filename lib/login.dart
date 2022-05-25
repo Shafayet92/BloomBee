@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:register/write.dart';
 
 import 'forgot.dart';
 import 'home.dart';
@@ -186,6 +187,31 @@ class _LoginPageState extends State<LoginPage> {
                               keyboardType: TextInputType.emailAddress,
                             ),
                             const SizedBox(
+                              height: 45,
+                            ),
+
+                            MaterialButton(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0))),
+                              elevation: 5.0,
+                              height: 40,
+                              onPressed: () {
+                                setState(() {
+                                  visible = true;
+                                });
+                                signIn(emailController.text,
+                                    passwordController.text);
+                              },
+                              child: const Text(
+                                "Login",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                              color: Colors.white,
+                            ),
+                            const SizedBox(
                               height: 20,
                             ),
                             RaisedButton(
@@ -209,40 +235,6 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            MaterialButton(
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0))),
-                              elevation: 5.0,
-                              height: 40,
-                              onPressed: () {
-                                setState(() {
-                                  visible = true;
-                                });
-                                signIn(emailController.text,
-                                    passwordController.text);
-                              },
-                              child: const Text(
-                                "Login",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
-                              color: Colors.white,
-                            ),
-
-                            Visibility(
-                                maintainSize: true,
-                                maintainAnimation: true,
-                                maintainState: true,
-                                visible: visible,
-                                child: Container(
-                                    child: CircularProgressIndicator(
-                                  color: Colors.white,
-                                ))),
                           ],
                         ),
                       ),
@@ -311,7 +303,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomePage(),
+            builder: (context) => Write(),
           ),
         );
       } on FirebaseAuthException catch (e) {

@@ -45,13 +45,13 @@ class _WriteState extends State<Write> {
       birthday: DateTime(2001, 7, 28),
     );
 
-    final json = user.toJson();
+    // final json = user.toJson();
 
-    // final json = {
-    //   'name': name,
-    //   'age': 21,
-    //   'birthday': DateTime(2001, 7, 28),
-    // };
+    final json = {
+      'name': name,
+      'age': 21,
+      'birthday': DateTime(2001, 7, 28),
+    };
     await docUser.set(json);
   }
 }
