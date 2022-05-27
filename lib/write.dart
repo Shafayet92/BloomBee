@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+// import 'package:intl/intl.dart';
+// import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 import 'login.dart';
 
@@ -18,49 +20,100 @@ class Write extends StatefulWidget {
 
 class _WriteState extends State<Write> {
   final controller = TextEditingController();
-
+  final controllerName = TextEditingController();
+  final controllerAge = TextEditingController();
+  final controllerDate = TextEditingController();
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Color.fromARGB(255, 201, 130, 7),
-        appBar: AppBar(
-          title: TextField(controller: controller),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.add),
-              onPressed: () {
-                final name = controller.text;
-                createUser(name: name);
-              },
-            )
-          ],
-        ),
+        // appBar: AppBar(
+        //   title: TextField(controller: controller),
+        // ),
+          body: ListView(
+            padding: EdgeInsets.all(16),
+            children: <Widget>[
+              TextField(
+                controller:  controllerName,
+                decoration: decoration('Name'),
+              ),
+              const SizedBox(height: 24,),
+              TextField(
+                controller: controllerAge,
+                decoration:  decoration('Age'),
+                keyboardType: TextInputType.number,
+              ),
+              // const SizedBox(height:24), 
+              // DateTimeField(
+              //   controller: controllerDate,
+              //   decoration: decoration('Birthday'),
+              //   format: dateFormat('yyy-MM-dd'),
+              //   onShowPicker: (context, currentValue)=>
+              //   context: context,
+              //   firstDate: DateTime(1900),
+              //   lastDate: DateTime(2100),
+              //   initialDate: currentValue ?? DateTime.n
+                 
+              //    const SizeBox(height:32);
+                 ElevatedButton(
+                   child: Text('Create'),
+                   onPressed: (){
+                //      final name = controller.text;
+                //  createUser(name: name);
+                     final user = User (
+                       name: controllerName.text,
+                       age: int.parse(controllerAge.text),
+                       birthday: DateTime.parse(controllerDate.text),
+                     );
+                     createUser(user);
+                     Navigator.pop(context);
+                   }, 
+              ),
+            ],
+          ),
+          // actions: [
+          //   IconButton(
+          //     icon: const Icon(Icons.add),
+          //     onPressed: () {
+          //       final name = controller.text;
+          //       createUser(name: name);
+          //     },
+          //   )
+          // ],
+        // ),
       );
-  Future createUser({required String name}) async {
-    final docUser = FirebaseFirestore.instance.collection('users').doc('my-id');
-
-    final user = User(
-      id: docUser.id,
-      name: name,
-      age: 21,
-      birthday: DateTime(2001, 7, 28),
-    );
+      InputDecoration decoration(String label)=> InputDecoration(
+      labelText: label,
+      border: const OutlineInputBorder()
+      );
+  Future createUser(User user) async {
+    final docUser = FirebaseFirestore.instance.collection('users').doc();
+    user.id = docUser.id; 
+    user.name  = docUser.get();
+    // final user = User(
+    //   id: docUser.id,
+    //   name: name,
+    //   age: 21,
+    //   birthday: DateTime(2001, 7, 28),
+    // );
 
     // final json = user.toJson();
 
-    final json = {
-      'name': name,
-      'age': 21,
-      'birthday': DateTime(2001, 7, 28),
-    };
+    // final json = {
+    //   'name': name,
+    //   'age': 21,
+    //   'birthday': DateTime(2001, 7, 28),
+    // };
+    // await docUser.set(json);
+    final json = user.toJson();
     await docUser.set(json);
   }
 }
 
 class User {
   String id;
-  final String name;
-  final int age;
-  final DateTime birthday;
+   String name;
+   int age;
+   DateTime birthday;
 
   User({
     this.id = '',
