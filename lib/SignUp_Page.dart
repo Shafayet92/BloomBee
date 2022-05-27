@@ -10,7 +10,8 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: Column(
+        body: SingleChildScrollView(
+            child: Column(
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -18,7 +19,7 @@ class SignUpPage extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     width: w,
-                    height: h * 0.1,
+                    height: h * 0.13,
                     child: Stack(
                       fit: StackFit.expand,
                       children: <Widget>[
@@ -33,18 +34,20 @@ class SignUpPage extends StatelessWidget {
                         ),
                         Positioned(
                           bottom: w * 0.09,
-                          left: w * 0.3,
-                          child: Column(
-                            children: <Widget>[
-                              Text(
-                                "BloomBee",
-                                style: TextStyle(
-                                    fontFamily: 'AirbnbCerealBold',
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 255, 242, 0)),
-                              ),
-                            ],
+                          left: w * 0.35,
+                          child: Center(
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  "BloomBee",
+                                  style: TextStyle(
+                                      fontFamily: 'Lobster',
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromARGB(255, 255, 242, 0)),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -54,7 +57,7 @@ class SignUpPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 40,
             ),
             Container(
                 margin: EdgeInsets.only(left: 20, right: 20),
@@ -63,10 +66,10 @@ class SignUpPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Sign Up",
+                      "Profile",
                       style: TextStyle(
                           color: Color.fromARGB(255, 15, 13, 8),
-                          fontSize: 30,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
@@ -77,39 +80,29 @@ class SignUpPage extends StatelessWidget {
                       height: 20,
                     ),
 
-//email
+//Parent name
                     TextFormField(
                       decoration: const InputDecoration(
                         icon: const Icon(Icons.text_fields),
-                        hintText: 'Enter your name',
+                        hintText: 'Enter Parent name',
                         labelText: 'Name',
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-//email
+//Parent Age
                     TextFormField(
                       decoration: const InputDecoration(
-                        icon: const Icon(Icons.email_sharp),
-                        hintText: 'Enter your email',
-                        labelText: 'Email',
+                        icon: const Icon(Icons.calendar_month_outlined),
+                        hintText: 'Enter Parent Age',
+                        labelText: 'Age',
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
-//Password
-                    TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.password_rounded),
-                        hintText: 'Enter your password',
-                        labelText: 'Password',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
+
 //Child Name
                     TextFormField(
                       decoration: const InputDecoration(
@@ -132,41 +125,48 @@ class SignUpPage extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
+                    //Gender
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        icon: const Icon(Icons.girl_outlined),
+                        hintText: 'Enter your Child Gender',
+                        labelText: 'Child Gender',
+                      ),
+                    ),
                   ],
                 )),
             SizedBox(
               height: 20,
             ),
-            Container(
-                width: w * 0.8,
-                height: h * 0.08,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    image: const DecorationImage(
-                        image: AssetImage("img/d.png"), fit: BoxFit.cover)),
-                child: Center(
-                  child: Text("Continue",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 255, 255, 255),
-                          fontSize: w * .05,
-                          fontWeight: FontWeight.bold)),
-                )),
             SizedBox(
-              height: w * 0.08,
+              height: 20,
             ),
-            RichText(
-                text: TextSpan(
-                    text: "Have an account?",
-                    style: TextStyle(color: Colors.grey[500], fontSize: 20),
-                    children: [
-                  TextSpan(
-                      text: " Sign In",
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 255, 0, 0),
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold))
-                ]))
+            MaterialButton(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.0),
+                ),
+              ),
+              elevation: 5.0,
+              height: 40,
+              onPressed: () {
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => Register(),
+                //   ),
+                // );
+              },
+              color: Colors.white,
+              child: const Text(
+                "Save",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ],
-        ));
+        )));
   }
 }
