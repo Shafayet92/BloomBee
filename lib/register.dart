@@ -32,30 +32,33 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromARGB(255, 2, 62, 151),
+      //backgroundColor: Color.fromARGB(255, 2, 62, 151),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
-              decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                stops: [
-                  0.1,
-                  0.4,
-                  0.6,
-                  0.9,
-                ],
-                colors: [
-                  Color.fromARGB(255, 3, 186, 174),
-                  Color.fromARGB(255, 149, 144, 3),
-                  Colors.indigo,
-                  Colors.teal,
-                ],
-              )),
+              width: w,
+              height: h * 0.3,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("img/loginimg.png"),
+                      fit: BoxFit.cover)),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                        blurRadius: 10,
+                        spreadRadius: 7,
+                        offset: Offset(1, 1),
+                        color: Colors.grey.withOpacity(0.2))
+                  ]),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: SingleChildScrollView(
@@ -67,178 +70,184 @@ class _RegisterState extends State<Register> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        // const SizedBox(
+                        //   height: 20,
+                        // ),
+
                         Text(
                           "BloomBee",
                           style: TextStyle(
-                            fontFamily: 'Lobster',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 50,
-                            color: Color.fromARGB(255, 21, 137, 0),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.lightBlue),
                         ),
                         Text(
-                          "Sign-Up Now",
-                          style: TextStyle(
-                            fontFamily: 'Lobster',
-                            color: Color.fromARGB(255, 113, 43, 43),
-                            fontSize: 20,
-                          ),
+                          "Sign up into your account",
+                          style:
+                              TextStyle(fontSize: 20, color: Colors.grey[500]),
                         ),
+
                         SizedBox(
-                          height: 50,
+                          height: 40,
                         ),
-                        // TextFormField(
-                        //   decoration: InputDecoration(
-                        //     fillColor: Colors.white,
-                        //     hintText: 'User Name',
-                        //     contentPadding: const EdgeInsets.only(
-                        //         left: 14.0, bottom: 8.0, top: 8.0),
-                        //     focusedBorder: OutlineInputBorder(
-                        //       borderSide: new BorderSide(color: Colors.white),
-                        //       borderRadius: new BorderRadius.circular(20),
-                        //     ),
-                        //     enabledBorder: UnderlineInputBorder(
-                        //       borderSide: new BorderSide(color: Colors.white),
-                        //       borderRadius: new BorderRadius.circular(20),
-                        //     ),
-                        //   ),
-                        //   validator: (value) {
-                        //     if (value!.length == 0) {
-                        //       return "Name cannot be empty";
-                        //     } else {
-                        //       return null;
-                        //     }
-                        //   },
-                        //   onChanged: (value) {},
-                        //   keyboardType: TextInputType.name,
-                        // ),
-                        // SizedBox(
-                        //   height: 20,
-                        // ),
-                        TextFormField(
-                          controller: emailController,
-                          decoration: InputDecoration(
-                            fillColor: Colors.white,
-                            hintText: 'Email',
-                            enabled: true,
-                            contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 8.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(20),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10,
+                                    spreadRadius: 7,
+                                    offset: const Offset(1, 1),
+                                    color: Colors.grey.withOpacity(0.2))
+                              ]),
+                          child: TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              fillColor: Colors.white,
+                              hintText: 'Email',
+                              enabled: true,
+                              contentPadding: const EdgeInsets.only(
+                                  left: 14.0, bottom: 8.0, top: 8.0),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.white),
+                                borderRadius: new BorderRadius.circular(20),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.white),
+                                borderRadius: new BorderRadius.circular(20),
+                              ),
                             ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(20),
-                            ),
+                            validator: (value) {
+                              if (value!.length == 0) {
+                                return "Email cannot be empty";
+                              }
+                              if (!RegExp(
+                                      "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                  .hasMatch(value)) {
+                                return ("Please enter a valid email");
+                              } else {
+                                return null;
+                              }
+                            },
+                            onChanged: (value) {},
+                            keyboardType: TextInputType.emailAddress,
                           ),
-                          validator: (value) {
-                            if (value!.length == 0) {
-                              return "Email cannot be empty";
-                            }
-                            if (!RegExp(
-                                    "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                .hasMatch(value)) {
-                              return ("Please enter a valid email");
-                            } else {
-                              return null;
-                            }
-                          },
-                          onChanged: (value) {},
-                          keyboardType: TextInputType.emailAddress,
                         ),
                         SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          obscureText: _isObscure,
-                          controller: passwordController,
-                          decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                                icon: Icon(_isObscure
-                                    ? Icons.visibility_off
-                                    : Icons.visibility),
-                                onPressed: () {
-                                  setState(() {
-                                    _isObscure = !_isObscure;
-                                  });
-                                }),
-                            fillColor: Colors.white,
-                            hintText: 'Password',
-                            enabled: true,
-                            contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 15.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(20),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10,
+                                    spreadRadius: 7,
+                                    offset: const Offset(1, 1),
+                                    color: Colors.grey.withOpacity(0.2))
+                              ]),
+                          child: TextFormField(
+                            obscureText: _isObscure,
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                  icon: Icon(_isObscure
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isObscure = !_isObscure;
+                                    });
+                                  }),
+                              fillColor: Colors.white,
+                              hintText: 'Password',
+                              enabled: true,
+                              contentPadding: const EdgeInsets.only(
+                                  left: 14.0, bottom: 8.0, top: 15.0),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.white),
+                                borderRadius: new BorderRadius.circular(20),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.white),
+                                borderRadius: new BorderRadius.circular(20),
+                              ),
                             ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(20),
-                            ),
+                            validator: (value) {
+                              RegExp regex = new RegExp(r'^.{6,}$');
+                              if (value!.isEmpty) {
+                                return "Password cannot be empty";
+                              }
+                              if (!regex.hasMatch(value)) {
+                                return ("Enter valid password minimum 6 character");
+                              } else {
+                                return null;
+                              }
+                            },
+                            onChanged: (value) {},
                           ),
-                          validator: (value) {
-                            RegExp regex = new RegExp(r'^.{6,}$');
-                            if (value!.isEmpty) {
-                              return "Password cannot be empty";
-                            }
-                            if (!regex.hasMatch(value)) {
-                              return ("Enter valid password minimum 6 character");
-                            } else {
-                              return null;
-                            }
-                          },
-                          onChanged: (value) {},
                         ),
+
                         SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          obscureText: _isObscure2,
-                          controller: confirmpassController,
-                          decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                                icon: Icon(_isObscure2
-                                    ? Icons.visibility_off
-                                    : Icons.visibility),
-                                onPressed: () {
-                                  setState(() {
-                                    _isObscure2 = !_isObscure2;
-                                  });
-                                }),
-                            fillColor: Colors.white,
-                            hintText: 'Confirm Password',
-                            enabled: true,
-                            contentPadding: const EdgeInsets.only(
-                                left: 14.0, bottom: 8.0, top: 15.0),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(20),
+
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10,
+                                    spreadRadius: 7,
+                                    offset: const Offset(1, 1),
+                                    color: Colors.grey.withOpacity(0.2))
+                              ]),
+                          child: TextFormField(
+                            obscureText: _isObscure2,
+                            controller: confirmpassController,
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                  icon: Icon(_isObscure2
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                  onPressed: () {
+                                    setState(() {
+                                      _isObscure2 = !_isObscure2;
+                                    });
+                                  }),
+                              fillColor: Colors.white,
+                              hintText: 'Confirm Password',
+                              enabled: true,
+                              contentPadding: const EdgeInsets.only(
+                                  left: 14.0, bottom: 8.0, top: 15.0),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.white),
+                                borderRadius: new BorderRadius.circular(20),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: new BorderSide(color: Colors.white),
+                                borderRadius: new BorderRadius.circular(20),
+                              ),
                             ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: new BorderSide(color: Colors.white),
-                              borderRadius: new BorderRadius.circular(20),
-                            ),
+                            validator: (value) {
+                              if (confirmpassController.text !=
+                                  passwordController.text) {
+                                return "Password not matched";
+                              } else {
+                                return null;
+                              }
+                            },
+                            onChanged: (value) {},
                           ),
-                          validator: (value) {
-                            if (confirmpassController.text !=
-                                passwordController.text) {
-                              return "Password not matched";
-                            } else {
-                              return null;
-                            }
-                          },
-                          onChanged: (value) {},
                         ),
+
                         SizedBox(
                           height: 50,
                         ),
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -261,10 +270,9 @@ class _RegisterState extends State<Register> {
                               child: const Text(
                                 "Login",
                                 style: TextStyle(
-                                  fontSize: 20,
-                                ),
+                                    fontSize: 20, color: Colors.white),
                               ),
-                              color: Colors.white,
+                              color: Colors.green,
                             ),
                             MaterialButton(
                               shape: RoundedRectangleBorder(
@@ -285,9 +293,10 @@ class _RegisterState extends State<Register> {
                                 "Register",
                                 style: TextStyle(
                                   fontSize: 20,
+                                  color: Colors.white,
                                 ),
                               ),
-                              color: Colors.white,
+                              color: Colors.orange,
                             ),
                           ],
                         ),
