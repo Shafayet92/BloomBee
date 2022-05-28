@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:register/write.dart';
+//import 'package:register/write.dart';
 
 import 'editProfile.dart';
 import 'forgot.dart';
