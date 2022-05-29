@@ -5,6 +5,7 @@ import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/models/category.dart';
 import 'package:register/Home_Page/screens/course_screen.dart';
 import 'package:register/Home_Page/widgets/circle_button.dart';
+import 'package:register/editProfile.dart';
 
 import '../widgets/search_testfield.dart';
 import 'details_screen.dart';
@@ -172,13 +173,24 @@ class AppBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Hello BloomBee",
-                style: Theme.of(context).textTheme.titleLarge,
+                style: TextStyle(
+                    fontFamily: 'Lobster',
+                    fontSize: 23,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(223, 53, 4, 158)),
               ),
               CircleButton(
                 icon: Icons.account_box,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EditProfilePage(),
+                    ),
+                  );
+                },
               ),
             ],
           ),

@@ -1,11 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:register/Home_Page/screens/base_screen.dart';
+import 'package:register/viewAllUsers.dart';
+import 'package:register/write.dart';
 
 import 'home.dart';
 import 'login.dart';
+import 'login_page.dart';
 import 'register.dart';
-//import 'write.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +28,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.blue[900],
       ),
-      home: const BaseScreen(),
+      home: LoginPage(),
     );
   }
 }

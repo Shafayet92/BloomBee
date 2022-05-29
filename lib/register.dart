@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'editProfile.dart';
 import 'login.dart';
 
 class Register extends StatefulWidget {
@@ -324,7 +325,7 @@ class _RegisterState extends State<Register> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => LoginPage(),
+                      builder: (_) => EditProfilePage(),
                     ),
                   )
                 });

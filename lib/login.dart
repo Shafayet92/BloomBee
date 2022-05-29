@@ -2,6 +2,8 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:register/Home_Page/screens/base_screen.dart';
+
 //import 'package:register/write.dart';
 
 import 'editProfile.dart';
@@ -303,7 +305,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => EditProfilePage(),
+            builder: (context) => const BaseScreen(),
           ),
         );
       } on FirebaseAuthException catch (e) {

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 // import 'package:intl/intl.dart';
 // import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
+import 'Home_Page/screens/base_screen.dart';
 import 'home.dart';
 import 'login.dart';
 
@@ -33,17 +34,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   final controllerChildName = TextEditingController();
   final controllerChildAge = TextEditingController();
   final controllerChildGender = TextEditingController();
-
-  // InputDecoration decoration(String label) =>
-  //     InputDecoration(labelText: label, border: const OutlineInputBorder();
-  // Future GetUser() async {
-  //    final userdata = FirebaseAuth.instance.currentUser?.uid;
-  //   final docUser = FirebaseFirestore.instance.collection('users').parent. .doc(userdata).;
-
-  //   user.id = userdata.toString();
-  //   final json = user.toJson();
-  //   docUser.doc(userdata).get(json);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -129,6 +119,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
                     ),
+
                     SizedBox(
                       height: 5,
                     ),
@@ -137,63 +128,162 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       height: 20,
                     ),
 
-//Parent name
-                    TextFormField(
-                      controller: controllerPName,
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.text_fields),
-                        hintText: 'Enter Parent name',
-                        labelText: 'Name',
-                      ),
+                    Container(
+                      child: FutureBuilder<User?>(
+                          future: readUser(),
+                          builder: (context, snapshot) {
+                            if (snapshot.data?.PName == "" ||
+                                snapshot.data?.PName == null) {
+                              return TextFormField(
+                                controller: controllerPName,
+                                decoration: InputDecoration(
+                                  icon: const Icon(Icons.text_fields),
+                                  hintText: 'Enter Parent name',
+                                  labelText: 'Name',
+                                ),
+                              );
+                            }
+
+                            return TextFormField(
+                              controller: controllerPName,
+                              decoration: InputDecoration(
+                                icon: const Icon(Icons.text_fields),
+                                labelText: snapshot.data?.PName,
+                              ),
+                            );
+                          }),
                     ),
+//Parent name
+
                     SizedBox(
                       height: 20,
                     ),
 //Parent Age
-                    TextFormField(
-                      controller: controllerPAge,
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.calendar_month_outlined),
-                        hintText: 'Enter Parent Age',
-                        labelText: 'Age',
-                      ),
+
+                    Container(
+                      child: FutureBuilder<User?>(
+                          future: readUser(),
+                          builder: (context, snapshot) {
+                            // ignore: unrelated_type_equality_checks
+                            if (snapshot.data?.PAge.toString().isEmpty == "" ||
+                                snapshot.data?.PAge == null) {
+                              return TextFormField(
+                                controller: controllerPAge,
+                                decoration: const InputDecoration(
+                                  icon: Icon(Icons.text_fields),
+                                  hintText: 'Enter Parent Age',
+                                  labelText: 'Age',
+                                ),
+                              );
+                            }
+
+                            return TextFormField(
+                              controller: controllerPAge,
+                              decoration: InputDecoration(
+                                icon: const Icon(Icons.text_fields),
+                                labelText: snapshot.data?.PAge.toString(),
+                              ),
+                            );
+                          }),
                     ),
                     SizedBox(
                       height: 20,
                     ),
 
 //Child Name
-                    TextFormField(
-                      controller: controllerChildName,
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.child_care_sharp),
-                        hintText: 'Enter your Child Name',
-                        labelText: 'Child Name',
-                      ),
+
+                    Container(
+                      child: FutureBuilder<User?>(
+                          future: readUser(),
+                          builder: (context, snapshot) {
+                            // ignore: unrelated_type_equality_checks
+                            if (snapshot.data?.ChildName.toString().isEmpty ==
+                                    "" ||
+                                snapshot.data?.ChildName == null) {
+                              return TextFormField(
+                                controller: controllerChildName,
+                                decoration: const InputDecoration(
+                                  icon: Icon(Icons.child_care_sharp),
+                                  hintText: 'Enter your Child Name',
+                                  labelText: 'Child Name',
+                                ),
+                              );
+                            }
+
+                            return TextFormField(
+                              controller: controllerChildName,
+                              decoration: InputDecoration(
+                                icon: const Icon(Icons.child_care_sharp),
+                                labelText: snapshot.data?.ChildName.toString(),
+                              ),
+                            );
+                          }),
                     ),
+
                     SizedBox(
                       height: 20,
                     ),
 //Child Age
-                    TextFormField(
-                      controller: controllerChildAge,
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.calendar_month_outlined),
-                        hintText: 'Enter your Child Age',
-                        labelText: 'Child Age',
-                      ),
+
+                    Container(
+                      child: FutureBuilder<User?>(
+                          future: readUser(),
+                          builder: (context, snapshot) {
+                            // ignore: unrelated_type_equality_checks
+                            if (snapshot.data?.ChildAge.toString().isEmpty ==
+                                    "" ||
+                                snapshot.data?.ChildAge == null) {
+                              return TextFormField(
+                                controller: controllerChildAge,
+                                decoration: const InputDecoration(
+                                  icon: Icon(Icons.calendar_month_outlined),
+                                  hintText: 'Enter your Child Age',
+                                  labelText: 'Child Age',
+                                ),
+                              );
+                            }
+
+                            return TextFormField(
+                              controller: controllerChildAge,
+                              decoration: InputDecoration(
+                                icon: const Icon(Icons.calendar_month_outlined),
+                                labelText: snapshot.data?.ChildAge.toString(),
+                              ),
+                            );
+                          }),
                     ),
                     SizedBox(
                       height: 20,
                     ),
 //ChildGender
-                    TextFormField(
-                      controller: controllerChildGender,
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.girl_outlined),
-                        hintText: 'Enter your Child Gender',
-                        labelText: 'Child Gender',
-                      ),
+
+                    Container(
+                      child: FutureBuilder<User?>(
+                          future: readUser(),
+                          builder: (context, snapshot) {
+                            // ignore: unrelated_type_equality_checks
+                            if (snapshot.data?.ChildGender.toString().isEmpty ==
+                                    "" ||
+                                snapshot.data?.ChildGender == null) {
+                              return TextFormField(
+                                controller: controllerChildGender,
+                                decoration: const InputDecoration(
+                                  icon: Icon(Icons.girl_outlined),
+                                  hintText: 'Enter your Child Gender',
+                                  labelText: 'Child Gender',
+                                ),
+                              );
+                            }
+
+                            return TextFormField(
+                              controller: controllerChildGender,
+                              decoration: InputDecoration(
+                                icon: const Icon(Icons.girl_outlined),
+                                labelText:
+                                    snapshot.data?.ChildGender.toString(),
+                              ),
+                            );
+                          }),
                     ),
                   ],
                 )),
@@ -222,7 +312,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 createUser(user);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => const BaseScreen()),
                 );
               },
               color: Colors.white,
@@ -236,6 +326,19 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
           ],
         )));
+  }
+
+  Future<User?> readUser() async {
+    final userdata = FirebaseAuth.instance.currentUser?.uid;
+    final snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userdata)
+        .get();
+
+    if (snapshot.exists) {
+      return User.fromJson(snapshot.data()!);
+    }
+    return null;
   }
 
   InputDecoration decoration(String label) =>
@@ -274,4 +377,12 @@ class User {
         'Child Age': ChildAge,
         'Child Gender': ChildGender,
       };
+  static User fromJson(Map<String, dynamic> json) => User(
+        id: json['id'],
+        PName: json['Parent Name'],
+        PAge: json['Parent Age'],
+        ChildName: json['Child Name'],
+        ChildAge: json['Child Age'],
+        ChildGender: json['Child Gender'],
+      );
 }
