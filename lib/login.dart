@@ -30,7 +30,8 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
-        body: Column(
+        body: SingleChildScrollView(
+            child: Column(
           children: [
             Container(
               width: w,
@@ -290,7 +291,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ],
-        ));
+        )));
   }
 
   void signIn(String email, String password) async {
