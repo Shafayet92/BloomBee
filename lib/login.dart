@@ -47,6 +47,8 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     // width: MediaQuery.of(context).size.width,
                     // height: MediaQuery.of(context).size.height * 0.70,
+                    // width: MediaQuery.of(context).size.width,
+                    // height: MediaQuery.of(context).size.height * 0.70,
                     child: Center(
                       child: Container(
                         margin: const EdgeInsets.all(12),
