@@ -4,6 +4,7 @@ import 'package:register/Home_Page/screens/base_screen.dart';
 import 'package:register/viewAllUsers.dart';
 import 'package:register/write.dart';
 
+import 'adminhome.dart';
 import 'home.dart';
 import 'login.dart';
 import 'login_page.dart';
@@ -28,7 +29,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.blue[900],
       ),
-      home: LoginPage(),
+      home: HomeScreen(),
     );
   }
 }
