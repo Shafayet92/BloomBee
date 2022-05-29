@@ -101,6 +101,7 @@ class CategoryCard extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => const CourseScreen(),
+          //MyHomePage(),
         ),
       ),
       child: Container(

@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'September',
+                    'JUNE',
                     style: TextStyle(
                       color: Color(0xFF00003f),
                       fontSize: 40.0,
