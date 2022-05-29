@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 // import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 import 'Home_Page/screens/base_screen.dart';
+import 'Home_Page/screens/details_screen.dart';
 import 'home.dart';
 import 'login.dart';
 
@@ -102,6 +103,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ],
               ),
+            ),
+            CustomIconButton(
+              child: const Icon(Icons.arrow_back),
+              height: 35,
+              width: 35,
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => BaseScreen(),
+                    ));
+              },
             ),
             SizedBox(
               height: 40,
@@ -310,7 +323,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ChildGender: controllerChildGender.text,
                 );
                 createUser(user);
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const BaseScreen()),
                 );

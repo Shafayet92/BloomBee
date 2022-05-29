@@ -181,15 +181,16 @@ class AppBar extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(223, 53, 4, 158)),
               ),
-              CircleButton(
-                icon: Icons.account_box,
-                onPressed: () {
+              CustomIconButton(
+                child: const Icon(Icons.account_box),
+                height: 35,
+                width: 35,
+                onTap: () {
                   Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EditProfilePage(),
-                    ),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditProfilePage(),
+                      ));
                 },
               ),
             ],

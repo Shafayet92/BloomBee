@@ -4,11 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:register/Home_Page/screens/base_screen.dart';
 
-//import 'package:register/write.dart';
-
-import 'editProfile.dart';
 import 'forgot.dart';
-import 'home.dart';
+
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
