@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:register/adminhome.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,8 +50,19 @@ class _ViewAllUserState extends State<ViewAllUser> {
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: Color.fromARGB(255, 255, 218, 107),
         appBar: AppBar(
+          title: Text("All Parents"),
           backgroundColor: Color.fromARGB(248, 2, 123, 16),
-          title: const Text('All Parents'),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ));
+            },
+            child: Icon(Icons.arrow_back // add custom icons also
+                ),
+          ),
         ),
         body: StreamBuilder<List<User>>(
             stream: readUsers(),

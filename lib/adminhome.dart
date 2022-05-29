@@ -1,4 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:register/viewAllUsers.dart';
+
+import 'Home_Page/screens/details_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   // const HomeScreen({ Key? key }) : super(key: key);
@@ -9,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  final email = FirebaseAuth.instance.currentUser?.email;
+
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
@@ -44,7 +50,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[Text('John Rick')],
+                          children: <Widget>[
+                            Text(
+                              'Welcome Admin, ',
+                              style: TextStyle(
+                                  fontFamily: 'Lobster',
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 3, 19, 237)),
+                            ),
+                            Text(
+                              '\n        Email: ' + email!,
+                              style: TextStyle(
+                                  fontFamily: 'Lobster',
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color.fromARGB(255, 21, 2, 121)),
+                            ),
+                          ],
                         ),
                         // child: Column(
                         //   mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +93,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: <Widget>[
 // SvgPicture.network('https://image.flaticon.com/icons/svg/1994/1904425.svg'
 // , height: 128, ),
-                              Text('User Data'),
+                              Text('All Parents'),
+
+                              CustomIconButton(
+                                child: Icon(Icons.arrow_back),
+                                height: 35,
+                                width: 35,
+                                onTap: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ViewAllUser(),
+                                      ));
+                                },
+                              ),
                             ],
                           ),
                         ),
@@ -85,17 +121,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                         ),
-                        Card(
-                          // shape: RoundedRectangleBorder(8),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              // SvgPicture.network(
-                              //   'https://image.flaticon.com/icons/svg/1994/1904425.svg',
-                              //   height: 128,
-                              // ),
-                              Text('Set Lessons')
-                            ],
+                        SingleChildScrollView(
+                          child: Card(
+                            // shape: RoundedRectangleBorder(8),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                // SvgPicture.network(
+                                //   'https://image.flaticon.com/icons/svg/1994/1904425.svg',
+                                //   height: 128,
+                                // ),
+                                Text('Set Lessons')
+                              ],
+                            ),
                           ),
                         ),
                         Card(
