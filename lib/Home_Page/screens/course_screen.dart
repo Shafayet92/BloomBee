@@ -4,6 +4,8 @@ import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/models/course.dart';
 import 'package:register/Home_Page/screens/details_screen.dart';
 
+import '../../parentsTaskPage.dart';
+
 class CourseScreen extends StatefulWidget {
   const CourseScreen({Key? key}) : super(key: key);
 
@@ -29,7 +31,7 @@ class _CourseScreenState extends State<CourseScreen> {
                     children: [
                       Align(
                         child: Text(
-                          'Development',
+                          'BloomBee',
                           style: Theme.of(context).textTheme.displayMedium,
                         ),
                       ),
@@ -85,11 +87,7 @@ class CourseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => DetailsScreen(
-                    title: course.name,
-                  ))),
+          context, MaterialPageRoute(builder: (context) => MyHomePage())),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
