@@ -38,6 +38,7 @@ dependencies:
   cloud_firestore: ^3.1.5
   flutter_lints: ^1.0.4
   firebase_database: ^9.0.13
+  http: ^0.13.4
   #Firebase Database
 
 dev_dependencies:

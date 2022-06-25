@@ -2,10 +2,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:register/Admin_Portal/adminhome.dart';
 import 'package:register/Home_Page/screens/base_screen.dart';
 import 'package:register/home.dart';
 
-import 'adminhome.dart';
 import 'forgot.dart';
 
 import 'register.dart';
