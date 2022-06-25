@@ -16,14 +16,16 @@ class _InsertContactPageState extends State<InsertContactPage> {
   final myControllerName = TextEditingController();
   final myControllerAge = TextEditingController();
   final myControllerPhone = TextEditingController();
-  TextEditingController dateInput = TextEditingController();
+  TextEditingController SdateInput = TextEditingController();
+  TextEditingController EdateInput = TextEditingController();
 
   //make sure to inittialize this outside of build method
   late String genderDropdownValue = 'Please Choose Gender';
 
   @override
   void initState() {
-    dateInput.text = ""; //set the initial value of text field
+    SdateInput.text = "";
+    EdateInput.text = ""; //set the initial value of text field
     super.initState();
   }
 
@@ -75,7 +77,7 @@ class _InsertContactPageState extends State<InsertContactPage> {
                     // height: MediaQuery.of(context).size.width / 3,
                     child: Center(
                         child: TextField(
-                      controller: dateInput,
+                      controller: SdateInput,
                       //editing controller of this TextField
                       decoration: InputDecoration(
                           icon: Icon(Icons.calendar_today), //icon of text field
@@ -84,22 +86,22 @@ class _InsertContactPageState extends State<InsertContactPage> {
                       readOnly: true,
                       //set it true, so that user will not able to edit text
                       onTap: () async {
-                        DateTime? pickedDate = await showDatePicker(
+                        DateTime? pickedStartDate = await showDatePicker(
                             context: context,
                             initialDate: DateTime.now(),
                             firstDate: DateTime(1950),
                             //DateTime.now() - not to allow to choose before today.
                             lastDate: DateTime(2100));
 
-                        if (pickedDate != null) {
+                        if (pickedStartDate != null) {
                           print(
-                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                              pickedStartDate); //pickedDate output format => 2021-03-10 00:00:00.000
                           String formattedDate =
-                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                              DateFormat('yyyy-MM-dd').format(pickedStartDate);
                           print(
                               formattedDate); //formatted date output using intl package =>  2021-03-16
                           setState(() {
-                            dateInput.text =
+                            SdateInput.text =
                                 formattedDate; //set output date to TextField value.
                           });
                         } else {}
@@ -110,7 +112,7 @@ class _InsertContactPageState extends State<InsertContactPage> {
                     // height: MediaQuery.of(context).size.width / 3,
                     child: Center(
                         child: TextField(
-                      controller: dateInput,
+                      controller: EdateInput,
                       //editing controller of this TextField
                       decoration: InputDecoration(
                           icon: Icon(Icons.calendar_today), //icon of text field
@@ -134,7 +136,7 @@ class _InsertContactPageState extends State<InsertContactPage> {
                           print(
                               formattedDate); //formatted date output using intl package =>  2021-03-16
                           setState(() {
-                            dateInput.text =
+                            EdateInput.text =
                                 formattedDate; //set output date to TextField value.
                           });
                         } else {}
@@ -179,31 +181,25 @@ class _InsertContactPageState extends State<InsertContactPage> {
                               MaterialStateProperty.all<Color>(Colors.blue),
                         ),
                         onPressed: () async {
-                          if (genderDropdownValue != 'Please Choose Gender') {
-                            String name = myControllerName.text;
-                            int age = int.parse(myControllerAge.text);
-                            String gender = genderDropdownValue;
-                            String phone = myControllerPhone.text;
+                          String name = myControllerName.text;
+                          int age = int.parse(myControllerAge.text);
+                          String gender = genderDropdownValue;
+                          String phone = myControllerPhone.text;
 
-                            // Add a new document with a generated id.
-                            final data = {
-                              "name": name,
-                              "age": age,
-                              "gender": gender,
-                              "phone": phone,
-                            };
+                          // Add a new document with a generated id.
+                          final data = {
+                            "name": name,
+                            "age": age,
+                            "gender": gender,
+                            "phone": phone,
+                          };
 
-                            final CollectionReference contacts =
-                                FirebaseFirestore.instance
-                                    .collection('contacts');
-                            contacts.add(data).then((documentSnapshot) =>
-                                // ignore: avoid_print
-                                print(
-                                    "Added Data with ID: ${documentSnapshot.id}"));
-                          } else {
-                            showAlertDialogOk(context,
-                                'Please choose male or female for gender!');
-                          }
+                          final CollectionReference contacts =
+                              FirebaseFirestore.instance.collection('contacts');
+                          contacts.add(data).then((documentSnapshot) =>
+                              // ignore: avoid_print
+                              print(
+                                  "Added Data with ID: ${documentSnapshot.id}"));
                         },
                         child: const Text('Submit'),
                       )),
