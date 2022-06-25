@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:register/Admin_Portal/manageactivity.dart';
+import 'package:register/editProfile.dart';
 import 'package:register/viewAllUsers.dart';
 
 import '../Home_Page/screens/details_screen.dart';
@@ -183,12 +184,12 @@ class _HomeScreenState extends State<HomeScreen> {
 // , height: 128, ),
 
                               TextButton(
-                                  child: const Text('Update Admin Profile'),
+                                  child: const Text('Profile'),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => ViewAllUser(),
+                                        builder: (context) => EditProfilePage(),
                                       ),
                                     );
                                   }),

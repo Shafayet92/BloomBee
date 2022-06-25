@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:register/Admin_Portal/adminhome.dart';
 // import 'package:intl/intl.dart';
 // import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
@@ -110,10 +111,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
               width: 35,
               onTap: () {
                 Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => BaseScreen(),
-                    ));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      if (FirebaseAuth.instance.currentUser?.uid ==
+                              "uarsqx0DDJalRjLGDTez8Zm32AV2" ||
+                          FirebaseAuth.instance.currentUser?.uid ==
+                              "TLwI5NLd3GOpAsA25RymuibBB172")
+                        return HomeScreen();
+                      return BaseScreen();
+                    },
+                  ),
+                );
               },
             ),
             SizedBox(
