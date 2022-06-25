@@ -39,6 +39,7 @@ dependencies:
   flutter_lints: ^1.0.4
   firebase_database: ^9.0.13
   http: ^0.13.4
+  intl: ^0.17.0
   #Firebase Database
 
 dev_dependencies:
