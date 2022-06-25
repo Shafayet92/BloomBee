@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:register/Admin_Portal/manageactivity.dart';
 import 'package:register/viewAllUsers.dart';
 
 import '../Home_Page/screens/details_screen.dart';
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           Container(
             height: size.height * .7,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('img/images02.jpg'),
                   alignment: Alignment.topCenter),
@@ -30,28 +31,28 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: <Widget>[
                   Container(
                     height: 64,
-                    margin: EdgeInsets.only(bottom: 20),
+                    margin: const EdgeInsets.only(bottom: 20),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 30,
                           backgroundImage: NetworkImage(
                               'https://picsum.photos/seed/picsum/200/300'),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 16,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text(
+                            const Text(
                               'Welcome Admin, ',
                               style: TextStyle(
                                   fontFamily: 'Lobster',
@@ -61,11 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Text(
                               '\n        Email: ' + email!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontFamily: 'Lobster',
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
-                                  color: Color.fromARGB(255, 21, 2, 121)),
+                                  color: const Color.fromARGB(255, 21, 2, 121)),
                             ),
                           ],
                         ),
@@ -139,12 +140,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               // ),
 
                               TextButton(
-                                  child: const Text('Set Lessons'),
+                                  child: const Text('Manage Tasks'),
                                   onPressed: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => ViewAllUser(),
+                                        builder: (context) =>
+                                            const ManageActivity(),
                                       ),
                                     );
                                   }),

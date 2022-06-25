@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:register/Admin_Portal/adminhome.dart';
 import 'package:register/Admin_Portal/utils/pallete.dart';
 import 'package:register/Admin_Portal/view_contact_page.dart';
 // import 'package:restful5/screens/insert_contact_page.dart';
@@ -34,7 +35,18 @@ class _ManageActivity extends State<ManageActivity> {
       home: Builder(
         builder: (context) => Scaffold(
           appBar: AppBar(
-            title: const Text('CRUD Operation Example'),
+            title: const Text('Manage Tasks'),
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(),
+                    ));
+              },
+              child: Icon(Icons.arrow_back // add custom icons also
+                  ),
+            ),
           ),
           body: Center(
             child: StreamBuilder(
