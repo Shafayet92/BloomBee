@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:register/Admin_Portal/adminhome.dart';
+import 'package:register/Admin_Portal/taskForm.dart';
 import 'package:register/Admin_Portal/utils/pallete.dart';
 import 'package:register/Admin_Portal/view_contact_page.dart';
 // import 'package:restful5/screens/insert_contact_page.dart';
@@ -73,11 +74,11 @@ class _ManageActivity extends State<ManageActivity> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
-              // await Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //       builder: (context) => const InsertContactPage()),
-              // );
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const InsertContactPage()),
+              );
             },
             tooltip: 'Add Contact',
             child: const Icon(Icons.add),
