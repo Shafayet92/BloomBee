@@ -45,7 +45,7 @@ class _ViewContactPageState extends State<ViewContactPage> {
             //back button disabled
             //automaticallyImplyLeading: false,
           ),
-          body: Center(
+          body: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -82,7 +82,8 @@ class _ViewContactPageState extends State<ViewContactPage> {
                           icon: Icon(Icons.calendar_today), //icon of text field
                           labelText: "Start Date" //label text of field
                           ),
-                      readOnly: true,
+                      enabled: false,
+                      readOnly: false,
                       //set it true, so that user will not able to edit text
                       onTap: () async {
                         DateTime? pickedStartDate = await showDatePicker(
@@ -117,7 +118,8 @@ class _ViewContactPageState extends State<ViewContactPage> {
                           icon: Icon(Icons.calendar_today), //icon of text field
                           labelText: "End Date" //label text of field
                           ),
-                      readOnly: true,
+                      enabled: false,
+                      readOnly: false,
                       //set it true, so that user will not able to edit text
                       onTap: () async {
                         DateTime? pickedDate = await showDatePicker(
