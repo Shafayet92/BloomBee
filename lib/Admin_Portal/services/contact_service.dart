@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:register/Admin_Portal/models/contact.dart';
 
 class ContactService {
-  static const url = 'http://localhost:3000/contacts';
+  static const url = 'http://localhost:3000/tasks';
 
   Future<List<Contact>> getAllContacts() async {
     final response = await http.get(Uri.parse(url));
@@ -81,7 +81,7 @@ class ContactService {
     //final String jsonString = jsonEncode(data);
 
     final response = await http.put(
-      Uri.parse('http://localhost:3000/contacts/$id'),
+      Uri.parse('http://localhost:3000/tasks/$id'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

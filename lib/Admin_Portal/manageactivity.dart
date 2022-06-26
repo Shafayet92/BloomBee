@@ -18,7 +18,7 @@ class ManageActivity extends StatefulWidget {
 
 class _ManageActivity extends State<ManageActivity> {
   final CollectionReference contacts =
-      FirebaseFirestore.instance.collection('contacts');
+      FirebaseFirestore.instance.collection('tasks');
 
   // Deleteing a product by id
   Future<void> _deleteContact(String contactId) async {

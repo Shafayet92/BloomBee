@@ -192,7 +192,7 @@ class _InsertContactPageState extends State<InsertContactPage> {
                           };
 
                           final CollectionReference contacts =
-                              FirebaseFirestore.instance.collection('contacts');
+                              FirebaseFirestore.instance.collection('tasks');
                           contacts.add(data).then((documentSnapshot) =>
                               // ignore: avoid_print
                               print(

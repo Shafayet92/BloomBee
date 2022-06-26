@@ -17,7 +17,7 @@ class ViewContactPage extends StatefulWidget {
 
 class _ViewContactPageState extends State<ViewContactPage> {
   final CollectionReference contacts =
-      FirebaseFirestore.instance.collection('contacts');
+      FirebaseFirestore.instance.collection('tasks');
 
   final myControllerTname = TextEditingController();
   final myControllerTdes = TextEditingController();
