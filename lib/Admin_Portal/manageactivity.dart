@@ -45,7 +45,7 @@ class _ManageActivity extends State<ManageActivity> {
                       builder: (context) => HomeScreen(),
                     ));
               },
-              child: Icon(Icons.arrow_back // add custom icons also
+              child: const Icon(Icons.arrow_back // add custom icons also
                   ),
             ),
           ),
@@ -105,7 +105,7 @@ class _ManageActivity extends State<ManageActivity> {
                   borderRadius: BorderRadius.all(Radius.circular(42.0)),
                 ),
                 child: const Icon(
-                  Icons.person,
+                  Icons.task,
                   color: Pallete.mainBlue,
                 ),
               ),
@@ -114,7 +114,7 @@ class _ManageActivity extends State<ManageActivity> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Name: ${documentSnapshot['name']}', //modify this
+                    'Task Name: ${documentSnapshot['Tname']}', //modify this
                     style: const TextStyle(
                       fontSize: 16.0,
                       color: Colors.black,
@@ -123,7 +123,21 @@ class _ManageActivity extends State<ManageActivity> {
                   ),
                   const SizedBox(height: 5.0),
                   Text(
-                    'Age: ${documentSnapshot['age']}', //modify this
+                    'Task Description: ${documentSnapshot['Task Description']}', //modify this
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    'Start date : ${documentSnapshot['Sdate']}', //modify this
+                    style: const TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Text(
+                    'End date : ${documentSnapshot['Edate']}', //modify this
                     style: const TextStyle(
                       fontSize: 14.0,
                       color: Colors.black,
@@ -131,7 +145,7 @@ class _ManageActivity extends State<ManageActivity> {
                   ),
                   const SizedBox(height: 5.0),
                   Text(
-                    'Task Description: ${documentSnapshot['phone']}', //modify this
+                    'Note: ${documentSnapshot['Notes']}', //modify this
                     style: const TextStyle(fontSize: 14.0, color: Colors.black),
                   ),
                 ],

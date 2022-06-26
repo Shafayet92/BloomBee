@@ -7,31 +7,35 @@ String contactToJson(Contact data) => json.encode(data.toJson());
 class Contact {
   Contact({
     required this.id,
-    required this.name,
-    required this.age,
-    required this.gender,
-    required this.phone,
+    required this.Tname,
+    required this.Sdate,
+    required this.Edate,
+    required this.Tdes,
+    required this.Notes,
   });
 
   int id;
-  String name;
-  int age;
-  String gender;
-  String phone;
+  String Tname;
+  String Sdate;
+  String Edate;
+  String Tdes;
+  String Notes;
 
   factory Contact.fromJson(Map<String, dynamic> json) => Contact(
         id: json["id"],
-        name: json["name"],
-        age: json["age"],
-        gender: json["gender"],
-        phone: json["phone"],
+        Tname: json["Tname"],
+        Sdate: json["Sdate"],
+        Edate: json["Edate"],
+        Tdes: json["Tdes"],
+        Notes: json["Notes"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": name,
-        "age": age,
-        "gender": gender,
-        "phone": phone,
+        "Tname": Tname,
+        "Sdate": Sdate,
+        "Edate": Edate,
+        "Task Description": Tdes,
+        "Notes": Notes,
       };
 }

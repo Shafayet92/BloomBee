@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class ViewContactPage extends StatefulWidget {
   final DocumentSnapshot documentSnapshot;
@@ -18,25 +19,26 @@ class _ViewContactPageState extends State<ViewContactPage> {
   final CollectionReference contacts =
       FirebaseFirestore.instance.collection('contacts');
 
-  final myControllerName = TextEditingController();
-  final myControllerAge = TextEditingController();
-  final myControllerPhone = TextEditingController();
-  final myControllerId = TextEditingController();
+  final myControllerTname = TextEditingController();
+  final myControllerTdes = TextEditingController();
+  final myControllerNotes = TextEditingController();
+  final myControllerSdate = TextEditingController();
+  final myControllerEdate = TextEditingController();
 
   //make sure to inittialize this outside of build method
-  late String dropdownValue = widget.documentSnapshot['gender'];
 
   bool changes = false;
 
   @override
   Widget build(BuildContext context) {
-    myControllerName.text = widget.documentSnapshot['name'];
-    myControllerAge.text = widget.documentSnapshot['age'].toString();
-    myControllerPhone.text = widget.documentSnapshot['phone'];
-    myControllerId.text = widget.documentSnapshot.id;
+    myControllerTname.text = widget.documentSnapshot['Tname'];
+    myControllerTdes.text = widget.documentSnapshot['Task Description'];
+    myControllerNotes.text = widget.documentSnapshot['Notes'];
+    myControllerSdate.text = widget.documentSnapshot['Sdate'];
+    myControllerEdate.text = widget.documentSnapshot['Edate'];
 
     return MaterialApp(
-      title: 'Welcome to Flutter',
+      title: 'Welcome Admin',
       home: Scaffold(
           appBar: AppBar(
             title: const Text('View/Edit Contact'),
@@ -51,11 +53,10 @@ class _ViewContactPageState extends State<ViewContactPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextFormField(
-                    controller: myControllerId,
-                    readOnly: true,
+                    controller: myControllerTname,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
-                      labelText: 'Contact Id',
+                      labelText: 'Edit Task name',
                     ),
                   ),
                 ),
@@ -63,76 +64,91 @@ class _ViewContactPageState extends State<ViewContactPage> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextFormField(
-                    controller: myControllerName,
+                    controller: myControllerTdes,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
-                      labelText: 'Edit contact name',
+                      labelText: 'Task Description',
                     ),
                   ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: TextFormField(
-                    controller: myControllerAge,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly
-                    ],
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Edit contact age',
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                  child: DropdownButton<String>(
-                    value: dropdownValue,
-                    icon: const Icon(Icons.arrow_downward),
-                    elevation: 16,
-                    style: const TextStyle(color: Colors.deepPurple),
-                    underline: Container(
-                      height: 2,
-                      color: Colors.deepPurpleAccent,
-                    ),
-                    onChanged: (String? newValue) async {
-                      dropdownValue = newValue!;
+                    padding: EdgeInsets.all(15),
+                    // height: MediaQuery.of(context).size.width / 3,
+                    child: Center(
+                        child: TextField(
+                      controller: myControllerSdate,
+                      //editing controller of this TextField
+                      decoration: InputDecoration(
+                          icon: Icon(Icons.calendar_today), //icon of text field
+                          labelText: "Start Date" //label text of field
+                          ),
+                      readOnly: true,
+                      //set it true, so that user will not able to edit text
+                      onTap: () async {
+                        DateTime? pickedStartDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1950),
+                            //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2100));
 
-                      if (newValue == 'Please Choose Gender') {
-                        setState(() {
-                          dropdownValue = widget.documentSnapshot['gender'];
-                        });
-                        showAlertDialogOk(
-                            context, 'Please select male or female!');
-                      } else {
-                        final returnData = await showAlertDialogYesNo(context);
-
-                        if (returnData) {
+                        if (pickedStartDate != null) {
+                          print(
+                              pickedStartDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('yyyy-MM-dd').format(pickedStartDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
                           setState(() {
-                            dropdownValue = newValue;
+                            myControllerSdate.text =
+                                formattedDate; //set output date to TextField value.
                           });
-                        }
-                      }
-                    },
-                    items: <String>['Please Choose Gender', 'male', 'female']
-                        .map<DropdownMenuItem<String>>((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                  ),
-                ),
+                        } else {}
+                      },
+                    ))),
+                Padding(
+                    padding: EdgeInsets.all(15),
+                    // height: MediaQuery.of(context).size.width / 3,
+                    child: Center(
+                        child: TextField(
+                      controller: myControllerEdate,
+                      //editing controller of this TextField
+                      decoration: InputDecoration(
+                          icon: Icon(Icons.calendar_today), //icon of text field
+                          labelText: "End Date" //label text of field
+                          ),
+                      readOnly: true,
+                      //set it true, so that user will not able to edit text
+                      onTap: () async {
+                        DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1950),
+                            //DateTime.now() - not to allow to choose before today.
+                            lastDate: DateTime(2100));
+
+                        if (pickedDate != null) {
+                          print(
+                              pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+                          String formattedDate =
+                              DateFormat('yyyy-MM-dd').format(pickedDate);
+                          print(
+                              formattedDate); //formatted date output using intl package =>  2021-03-16
+                          setState(() {
+                            myControllerEdate.text =
+                                formattedDate; //set output date to TextField value.
+                          });
+                        } else {}
+                      },
+                    ))),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextFormField(
-                    controller: myControllerPhone,
+                    controller: myControllerNotes,
                     decoration: const InputDecoration(
                       border: UnderlineInputBorder(),
-                      labelText: 'Edit phone',
+                      labelText: 'Task Description',
                     ),
                   ),
                 ),
@@ -164,18 +180,20 @@ class _ViewContactPageState extends State<ViewContactPage> {
                               MaterialStateProperty.all<Color>(Colors.blue),
                         ),
                         onPressed: () async {
-                          String name = myControllerName.text;
-                          String gender = dropdownValue;
-                          int age = int.parse(myControllerAge.text);
-                          String phone = myControllerPhone.text;
+                          String Tname = myControllerTname.text;
+                          String Sdate = myControllerSdate.text;
+                          String Edate = myControllerEdate.text;
+                          String Tdes = myControllerTdes.text;
+                          String Notes = myControllerNotes.text;
 
                           await contacts
                               .doc(widget.documentSnapshot.id)
                               .update({
-                            "name": name,
-                            "gender": gender,
-                            "age": age,
-                            "phone": phone
+                            "Tname": Tname,
+                            "Task Description": Tdes,
+                            "Sdate": Sdate,
+                            "Edate": Edate,
+                            "Notes": Notes,
                           });
                         },
                         child: const Text('Submit'),

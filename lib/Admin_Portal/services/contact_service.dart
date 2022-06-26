@@ -62,7 +62,12 @@ class ContactService {
       // will always return false on `FutureBuilder`.
       // ignore: avoid_print
       return Contact(
-          id: 0, name: "deleted", age: 0, gender: "none", phone: "1234");
+          id: 0,
+          Tname: "deleted",
+          Sdate: "deleted",
+          Edate: "deleted",
+          Tdes: "deleted",
+          Notes: "deleted");
     } else {
       // If the server did not return a "200 OK response",
       // then throw an exception.
@@ -71,8 +76,8 @@ class ContactService {
   }
 
   Future<Contact> updateContact(
-      int id, String name, int age, String gender, String phone) async {
-    final data = {'name': name, 'age': age, 'gender': gender, 'phone': phone};
+      int id, String Tname, int age, String Notes, String phone) async {
+    final data = {'Tname': Tname, 'Notes': Notes, 'phone': phone};
     //final String jsonString = jsonEncode(data);
 
     final response = await http.put(
