@@ -41,7 +41,7 @@ class _ViewContactPageState extends State<ViewContactPage> {
       title: 'Welcome Admin',
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('View/Edit Contact'),
+            title: const Text('View/Edit Task'),
             //back button disabled
             //automaticallyImplyLeading: false,
           ),
@@ -82,8 +82,7 @@ class _ViewContactPageState extends State<ViewContactPage> {
                           icon: Icon(Icons.calendar_today), //icon of text field
                           labelText: "Start Date" //label text of field
                           ),
-                      enabled: false,
-                      readOnly: false,
+                      readOnly: true,
                       //set it true, so that user will not able to edit text
                       onTap: () async {
                         DateTime? pickedStartDate = await showDatePicker(
@@ -118,8 +117,7 @@ class _ViewContactPageState extends State<ViewContactPage> {
                           icon: Icon(Icons.calendar_today), //icon of text field
                           labelText: "End Date" //label text of field
                           ),
-                      enabled: false,
-                      readOnly: false,
+                      readOnly: true,
                       //set it true, so that user will not able to edit text
                       onTap: () async {
                         DateTime? pickedDate = await showDatePicker(
