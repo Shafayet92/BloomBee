@@ -116,7 +116,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: <Widget>[
 // SvgPicture.network('https://image.flaticon.com/icons/svg/1994/1904425.svg'
 // , height: 128, ),
-
                               TextButton(
                                   child: const Text('Set Daily Activity'),
                                   onPressed: () {
