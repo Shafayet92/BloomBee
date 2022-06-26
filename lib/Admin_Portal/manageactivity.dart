@@ -131,7 +131,7 @@ class _ManageActivity extends State<ManageActivity> {
                   ),
                   const SizedBox(height: 5.0),
                   Text(
-                    'Phone: ${documentSnapshot['phone']}', //modify this
+                    'Task Description: ${documentSnapshot['phone']}', //modify this
                     style: const TextStyle(fontSize: 14.0, color: Colors.black),
                   ),
                 ],
@@ -142,7 +142,7 @@ class _ManageActivity extends State<ManageActivity> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               TextButton(
-                  child: Text('View/Edit: ID(${documentSnapshot.id})'),
+                  child: Text(' View/Edit '),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -153,7 +153,7 @@ class _ManageActivity extends State<ManageActivity> {
                   }),
               const SizedBox(width: 8),
               TextButton(
-                child: const Text('Delete: ID()'),
+                child: const Text(' Delete '),
                 onPressed: () {
                   _deleteContact(documentSnapshot.id);
                 },
