@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:register/Admin_Portal/adminhome.dart';
 import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/models/category.dart';
 import 'package:register/Home_Page/screens/course_screen.dart';
 import 'package:register/Home_Page/widgets/circle_button.dart';
+import 'package:register/ImageBasedLearning/ImageBasedLearning.dart';
 import 'package:register/Parents/tasks.dart';
 import 'package:register/editProfile.dart';
 
@@ -102,8 +104,19 @@ class CategoryCard extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const TasksParents(),
-          //MyHomePage(),
+          builder: (context) {
+            switch (category.page) {
+              case "1":
+                return ImageBasedLearning();
+              case "2":
+                return HomeScreen();
+              case "3":
+                return const TasksParents();
+              case "4":
+                return HomeScreen();
+            }
+            return const FeaturedScreen();
+          },
         ),
       ),
       child: Container(
