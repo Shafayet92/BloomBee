@@ -5,6 +5,7 @@ import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/models/category.dart';
 import 'package:register/Home_Page/screens/course_screen.dart';
 import 'package:register/Home_Page/widgets/circle_button.dart';
+import 'package:register/Parents/tasks.dart';
 import 'package:register/editProfile.dart';
 
 import '../widgets/search_testfield.dart';
@@ -76,9 +77,10 @@ class Body extends StatelessWidget {
             mainAxisSpacing: 24,
           ),
           itemBuilder: (context, index) {
-            return CategoryCard(
+            return SingleChildScrollView(
+                child: CategoryCard(
               category: categoryList[index],
-            );
+            ));
           },
           itemCount: categoryList.length,
         ),
@@ -100,7 +102,7 @@ class CategoryCard extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const CourseScreen(),
+          builder: (context) => const TasksParents(),
           //MyHomePage(),
         ),
       ),

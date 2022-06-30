@@ -40,6 +40,7 @@ dependencies:
   firebase_database: ^9.0.13
   http: ^0.13.4
   intl: ^0.17.0
+  date_format: ^2.0.2
   #Firebase Database
 
 dev_dependencies:

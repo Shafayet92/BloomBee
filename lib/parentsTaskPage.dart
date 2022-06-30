@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/widgets.dart';
 
 import 'PtaskCard.dart';
@@ -20,7 +21,9 @@ class MyHomePage extends StatefulWidget {
 
 List<String> items = ['Office Supply', 'Child Care', 'University', 'Personal'];
 List<Color> colors = [Colors.blue, Colors.yellow, Colors.red];
-List<int> days = [4, 5, 6, 7, 8, 9, 10];
+DateTime now = DateTime.now();
+String formattedDate = DateFormat('dd').format(now);
+List<int> days = [4, 5, 6, 7, 8, 9];
 List<String> daysNames = ['Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue'];
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -38,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'JUNE',
+                    returnMonth(DateTime.now()),
                     style: TextStyle(
                       color: Color(0xFF00003f),
                       fontSize: 40.0,
@@ -151,4 +154,8 @@ class TriangleClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(TriangleClipper oldClipper) => true;
+}
+
+String returnMonth(DateTime date) {
+  return new DateFormat.MMMM().format(date);
 }

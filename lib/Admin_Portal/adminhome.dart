@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:register/Admin_Portal/manageactivity.dart';
 import 'package:register/editProfile.dart';
-import 'package:register/viewAllUsers.dart';
+import 'package:register/Admin_Portal/viewAllUsers.dart';
 
 import '../Home_Page/screens/details_screen.dart';
 
