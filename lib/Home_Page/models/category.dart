@@ -22,7 +22,7 @@ List<Category> categoryList = [
     thumbnail: 'img/academicbasiclearning.jpg',
   ),
   Category(
-    name: 'Daily Task',
+    name: 'Parent Tasks',
     noOfCourses: 5,
     thumbnail: 'img/dailytask.jpg',
   ),

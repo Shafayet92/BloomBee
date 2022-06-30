@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/constants/icons.dart';
-import 'package:register/Home_Page/models/lesson.dart';
+// import 'package:register/Home_Page/models/lesson.dart';
 //import 'package:register/Home_Page/widgets/custom_video_player.dart';
 
-import '../widgets/lesson_card.dart';
+// import '../widgets/lesson_card.dart';
 
 class DetailsScreen extends StatefulWidget {
   final String title;
@@ -61,13 +61,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 25,
-                ),
-                // const CustomVideoPlayer(),
-                const SizedBox(
-                  height: 15,
-                ),
                 const Text(
                   "Image Based Learning",
                   style: TextStyle(
@@ -84,9 +77,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     fontWeight: FontWeight.w500,
                     fontSize: 16,
                   ),
-                ),
-                const SizedBox(
-                  height: 3,
                 ),
                 Row(
                   children: [
@@ -161,22 +151,27 @@ class PlayList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        separatorBuilder: (_, __) {
-          return const SizedBox(
-            height: 20,
-          );
-        },
-        padding: const EdgeInsets.only(top: 20, bottom: 40),
-        shrinkWrap: true,
-        itemCount: lessonList.length,
-        itemBuilder: (_, index) {
-          return LessonCard(lesson: lessonList[index]);
-        },
-      ),
-    );
+    throw UnimplementedError();
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Expanded(
+  //     child: ListView.separated(
+  //       separatorBuilder: (_, __) {
+  //         return const SizedBox(
+  //           height: 20,
+  //         );
+  //       },
+  //       padding: const EdgeInsets.only(top: 20, bottom: 40),
+  //       shrinkWrap: true,
+  //       itemCount: lessonList.length,
+  //       itemBuilder: (_, index) {
+  //         return LessonCard(lesson: lessonList[index]);
+  //       },
+  //     ),
+  //   );
+  // }
 }
 
 class Description extends StatelessWidget {
