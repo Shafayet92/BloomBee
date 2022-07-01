@@ -55,15 +55,14 @@ class _BaseScreenState extends State<BaseScreen> {
               label: "My Learning",
             ),
             BottomNavigationBarItem(
-              activeIcon: Image.asset(
-                icWishlist,
-                height: kBottomNavigationBarItemSize,
+              activeIcon: Icon(
+                Icons.chat_outlined,
+                color: Colors.blue,
               ),
-              icon: Image.asset(
-                icWishlistOutlined,
-                height: kBottomNavigationBarItemSize,
+              icon: Icon(
+                Icons.chat_outlined,
               ),
-              label: "Wishlist",
+              label: "Chat",
             ),
             BottomNavigationBarItem(
               activeIcon: Image.asset(

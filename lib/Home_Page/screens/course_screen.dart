@@ -16,7 +16,8 @@ class CourseScreen extends StatefulWidget {
 class _CourseScreenState extends State<CourseScreen> {
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
+    return SingleChildScrollView(
+        child: AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         body: SafeArea(
@@ -72,7 +73,7 @@ class _CourseScreenState extends State<CourseScreen> {
           ),
         ),
       ),
-    );
+    ));
   }
 }
 

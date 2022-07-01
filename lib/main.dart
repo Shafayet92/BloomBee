@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:register/Home_Page/screens/base_screen.dart';
 import 'package:register/login.dart';
 
 Future<void> main() async {
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.blue[900],
       ),
-      home: LoginPage(),
+      home: BaseScreen(),
     );
   }
 }

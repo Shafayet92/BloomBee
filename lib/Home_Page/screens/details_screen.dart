@@ -29,7 +29,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
+    return SingleChildScrollView(
+        child: AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -142,7 +143,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           },
         ),
       ),
-    );
+    ));
   }
 }
 
