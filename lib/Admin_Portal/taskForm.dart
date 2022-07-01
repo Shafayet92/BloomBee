@@ -197,6 +197,7 @@ class _InsertContactPageState extends State<InsertContactPage> {
                               // ignore: avoid_print
                               print(
                                   "Added Data with ID: ${documentSnapshot.id}"));
+                          Navigator.of(context).pop(1);
                         },
                         child: const Text('Submit'),
                       )),

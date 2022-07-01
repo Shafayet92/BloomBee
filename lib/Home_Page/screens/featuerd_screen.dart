@@ -6,7 +6,8 @@ import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/models/category.dart';
 import 'package:register/Home_Page/screens/course_screen.dart';
 import 'package:register/Home_Page/widgets/circle_button.dart';
-import 'package:register/ImageBasedLearning/ImageBasedLearning.dart';
+import 'package:register/Parents/Image_Based_Learning/ImageBasedLearning.dart';
+
 import 'package:register/Parents/tasks.dart';
 import 'package:register/editProfile.dart';
 
