@@ -5,7 +5,8 @@ import 'package:register/Admin_Portal/taskForm.dart';
 import 'package:register/Admin_Portal/utils/pallete.dart';
 import 'package:register/Admin_Portal/view_contact_page.dart';
 import 'package:register/Home_Page/screens/base_screen.dart';
-import 'package:register/Parents/view_page.dart';
+import 'package:register/Parents/Parent_Tasks/view_page.dart';
+
 // import 'package:restful5/screens/insert_contact_page.dart';
 // import 'package:restful5/screens/view_contact_page.dart';
 // import 'package:restful5/utils/pallete.dart';
@@ -38,7 +39,7 @@ class _TasksParents extends State<TasksParents> {
       home: Builder(
         builder: (context) => Scaffold(
           appBar: AppBar(
-            title: const Text('Manage TasksParents'),
+            title: const Text('Parent Tasks'),
             leading: GestureDetector(
               onTap: () {
                 Navigator.pushReplacement(
@@ -98,6 +99,7 @@ class _TasksParents extends State<TasksParents> {
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: 42.0,

@@ -39,7 +39,7 @@ class _ViewPageState extends State<ViewPage> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: const Text('View/Edit Task'),
+            title: const Text('View Task'),
             //back button disabled
             //automaticallyImplyLeading: false,
           ),

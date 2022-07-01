@@ -5,22 +5,22 @@ import 'package:register/Home_Page/screens/base_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(ImageBasedLearning());
+  runApp(AcademicBasedLearning());
 }
 
-class ImageBasedLearning extends StatefulWidget {
+class AcademicBasedLearning extends StatefulWidget {
   @override
-  _ImageBasedLearningState createState() => _ImageBasedLearningState();
+  _AcademicBasedLearningState createState() => _AcademicBasedLearningState();
 }
 
-class _ImageBasedLearningState extends State<ImageBasedLearning> {
+class _AcademicBasedLearningState extends State<AcademicBasedLearning> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Builder(
             builder: (context) => Scaffold(
                   appBar: AppBar(
-                    title: const Text('Image Based Learning'),
+                    title: const Text('Academic Based Learning'),
                     backgroundColor: Color.fromARGB(255, 35, 116, 39),
                     leading: GestureDetector(
                       onTap: () {
