@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/constants/icons.dart';
 import 'package:register/Home_Page/constants/size.dart';
+import 'package:register/Home_Page/screens/course_screen.dart';
 import 'package:register/Home_Page/screens/featuerd_screen.dart';
+import 'package:register/Home_Page/screens/settings.dart';
+import 'package:register/Home_Page/screens/chat.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({Key? key}) : super(key: key);
@@ -12,21 +16,34 @@ class BaseScreen extends StatefulWidget {
 }
 
 class _BaseScreenState extends State<BaseScreen> {
-  int _selectedIndex = 0;
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    FeaturedScreen(),
-    FeaturedScreen(),
-    FeaturedScreen(),
-    FeaturedScreen(),
+  int _currentIndex = 0;
+  final List<Widget> _children = [
+    const FeaturedScreen(),
+    const CourseScreen(),
+    LiveChat(),
+    SettingsPage()
   ];
+  void onTappedBar(int index){
+  setState((){
+    _currentIndex = index;
+      });
+  }
+  // static const List<Widget> _widgetOptions = <Widget>[
+  //   FeaturedScreen(),
+  //   FeaturedScreen(),
+  //   FeaturedScreen(),
+  //   FeaturedScreen(),
+  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      // body: Center(
+      //   child: _widgetOptions.elementAt(_selectedIndex),
+      // ),
+      body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        onTap: onTappedBar,
+        currentIndex: _currentIndex,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: kPrimaryColor,
           backgroundColor: Colors.white,
@@ -76,12 +93,12 @@ class _BaseScreenState extends State<BaseScreen> {
               label: "Settings",
             ),
           ],
-          currentIndex: _selectedIndex,
-          onTap: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          }),
+          // currentIndex: _selectedIndex,
+          // onTap: (int index) {
+          //   setState(() {
+          //     _selectedIndex = index;
+          //   });
+          ),
     );
   }
 }
