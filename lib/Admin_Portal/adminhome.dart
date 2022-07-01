@@ -4,8 +4,6 @@ import 'package:register/Admin_Portal/manageactivity.dart';
 import 'package:register/editProfile.dart';
 import 'package:register/Admin_Portal/viewAllUsers.dart';
 
-import '../Home_Page/screens/details_screen.dart';
-
 class HomeScreen extends StatefulWidget {
   // const HomeScreen({ Key? key }) : super(key: key);
 
@@ -14,9 +12,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
   final email = FirebaseAuth.instance.currentUser?.email;
 
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
