@@ -4,6 +4,7 @@ import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/constants/icons.dart';
 import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/screens/course_screen.dart';
+import 'package:register/Home_Page/screens/donation.dart';
 import 'package:register/Home_Page/screens/featuerd_screen.dart';
 import 'package:register/Home_Page/screens/settings.dart';
 import 'package:register/Home_Page/screens/chat.dart';
@@ -19,15 +20,16 @@ class _BaseScreenState extends State<BaseScreen> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     const FeaturedScreen(),
-    const CourseScreen(),
+    DonationPage(),
     LiveChat(),
     SettingsPage()
   ];
-  void onTappedBar(int index){
-  setState((){
-    _currentIndex = index;
-      });
+  void onTappedBar(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
   }
+
   // static const List<Widget> _widgetOptions = <Widget>[
   //   FeaturedScreen(),
   //   FeaturedScreen(),
@@ -44,61 +46,61 @@ class _BaseScreenState extends State<BaseScreen> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTappedBar,
         currentIndex: _currentIndex,
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: kPrimaryColor,
-          backgroundColor: Colors.white,
-          elevation: 0,
-          items: [
-            BottomNavigationBarItem(
-              activeIcon: Image.asset(
-                icFeatured,
-                height: kBottomNavigationBarItemSize,
-              ),
-              icon: Image.asset(
-                icFeaturedOutlined,
-                height: kBottomNavigationBarItemSize,
-              ),
-              label: "Featured",
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: kPrimaryColor,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        items: [
+          BottomNavigationBarItem(
+            activeIcon: Image.asset(
+              icFeatured,
+              height: kBottomNavigationBarItemSize,
             ),
-            BottomNavigationBarItem(
-              activeIcon: Image.asset(
-                icLearning,
-                height: kBottomNavigationBarItemSize,
-              ),
-              icon: Image.asset(
-                icLearningOutlined,
-                height: kBottomNavigationBarItemSize,
-              ),
-              label: "My Learning",
+            icon: Image.asset(
+              icFeaturedOutlined,
+              height: kBottomNavigationBarItemSize,
             ),
-            BottomNavigationBarItem(
-              activeIcon: Icon(
-                Icons.chat_outlined,
-                color: Colors.blue,
-              ),
-              icon: Icon(
-                Icons.chat_outlined,
-              ),
-              label: "Chat",
-            ),
-            BottomNavigationBarItem(
-              activeIcon: Image.asset(
-                icSetting,
-                height: kBottomNavigationBarItemSize,
-              ),
-              icon: Image.asset(
-                icSettingOutlined,
-                height: kBottomNavigationBarItemSize,
-              ),
-              label: "Settings",
-            ),
-          ],
-          // currentIndex: _selectedIndex,
-          // onTap: (int index) {
-          //   setState(() {
-          //     _selectedIndex = index;
-          //   });
+            label: "Featured",
           ),
+          BottomNavigationBarItem(
+            activeIcon: Image.asset(
+              icLearning,
+              height: kBottomNavigationBarItemSize,
+            ),
+            icon: Image.asset(
+              icLearningOutlined,
+              height: kBottomNavigationBarItemSize,
+            ),
+            label: "My Learning",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: Icon(
+              Icons.chat_outlined,
+              color: Colors.blue,
+            ),
+            icon: Icon(
+              Icons.chat_outlined,
+            ),
+            label: "Chat",
+          ),
+          BottomNavigationBarItem(
+            activeIcon: Image.asset(
+              icSetting,
+              height: kBottomNavigationBarItemSize,
+            ),
+            icon: Image.asset(
+              icSettingOutlined,
+              height: kBottomNavigationBarItemSize,
+            ),
+            label: "Settings",
+          ),
+        ],
+        // currentIndex: _selectedIndex,
+        // onTap: (int index) {
+        //   setState(() {
+        //     _selectedIndex = index;
+        //   });
+      ),
     );
   }
 }
