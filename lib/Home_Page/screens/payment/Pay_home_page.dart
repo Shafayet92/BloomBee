@@ -15,7 +15,7 @@ class _PayHomePageState extends State<PayHomePage> {
     final PaymentController controller = Get.put(PaymentController());
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Donation'),
+        title: const Text('Subscription'),
         backgroundColor: Color.fromARGB(221, 12, 127, 2),
         //back button disabled
         //automaticallyImplyLeading: false,
@@ -54,7 +54,7 @@ class _PayHomePageState extends State<PayHomePage> {
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text(
-                    'Make Donation',
+                    'Make Subscription',
                     style: TextStyle(
                         color: Color.fromARGB(255, 222, 246, 127),
                         fontSize: 20),

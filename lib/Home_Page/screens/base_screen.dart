@@ -70,7 +70,7 @@ class _BaseScreenState extends State<BaseScreen> {
             icon: Icon(
               Icons.volunteer_activism_outlined,
             ),
-            label: "Donate",
+            label: "Subscription",
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(
