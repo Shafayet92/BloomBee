@@ -29,6 +29,9 @@ class _PayHomePageState extends State<PayHomePage> {
               labelText: 'Amount in MYR',
             ),
           ),
+          SizedBox(
+            height: 40,
+          ),
           InkWell(
             onTap: () {
               controller.makePayment(
@@ -51,7 +54,9 @@ class _PayHomePageState extends State<PayHomePage> {
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     'Make Donation',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 222, 246, 127),
+                        fontSize: 20),
                   ),
                 ),
               ),

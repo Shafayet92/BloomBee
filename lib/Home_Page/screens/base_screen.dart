@@ -4,9 +4,9 @@ import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/constants/icons.dart';
 import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/screens/course_screen.dart';
-import 'package:register/Home_Page/screens/donation.dart';
+import 'package:register/Home_Page/screens/payment/donation.dart';
 import 'package:register/Home_Page/screens/featuerd_screen.dart';
-import 'package:register/Home_Page/screens/settings.dart';
+import 'package:register/Home_Page/screens/DarkMood/settings.dart';
 import 'package:register/Home_Page/screens/chat.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -63,15 +63,14 @@ class _BaseScreenState extends State<BaseScreen> {
             label: "Featured",
           ),
           BottomNavigationBarItem(
-            activeIcon: Image.asset(
-              icLearning,
-              height: kBottomNavigationBarItemSize,
+            activeIcon: Icon(
+              Icons.volunteer_activism_outlined,
+              color: Colors.blue,
             ),
-            icon: Image.asset(
-              icLearningOutlined,
-              height: kBottomNavigationBarItemSize,
+            icon: Icon(
+              Icons.volunteer_activism_outlined,
             ),
-            label: "My Learning",
+            label: "Donate",
           ),
           BottomNavigationBarItem(
             activeIcon: Icon(
