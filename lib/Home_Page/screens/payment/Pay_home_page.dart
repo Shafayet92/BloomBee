@@ -16,6 +16,7 @@ class _PayHomePageState extends State<PayHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Donation'),
+        backgroundColor: Color.fromARGB(221, 12, 127, 2),
         //back button disabled
         //automaticallyImplyLeading: false,
       ),
@@ -40,7 +41,7 @@ class _PayHomePageState extends State<PayHomePage> {
             child: Center(
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: Colors.blueAccent,
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: const [
                     BoxShadow(

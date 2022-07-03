@@ -39,6 +39,7 @@ class _TasksParents extends State<TasksParents> {
       home: Builder(
         builder: (context) => Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.blueGrey,
             title: const Text('Parent Tasks'),
             leading: GestureDetector(
               onTap: () {
@@ -110,7 +111,7 @@ class _TasksParents extends State<TasksParents> {
                 ),
                 child: const Icon(
                   Icons.task,
-                  color: Pallete.mainBlue,
+                  color: Color.fromARGB(255, 94, 114, 13),
                 ),
               ),
               const SizedBox(width: 20.0),

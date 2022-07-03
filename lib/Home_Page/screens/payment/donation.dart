@@ -19,7 +19,7 @@ class _DonationPageState extends State<DonationPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue[900],
+        primaryColor: Color.fromARGB(255, 1, 39, 97),
       ),
       home: PayHomePage(),
     );
