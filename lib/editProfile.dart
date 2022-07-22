@@ -365,6 +365,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   InputDecoration decoration(String label) =>
       InputDecoration(labelText: label, border: const OutlineInputBorder());
+
   Future createUser(User user) async {
     final docUser = FirebaseFirestore.instance.collection('users');
 

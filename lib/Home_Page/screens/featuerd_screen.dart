@@ -114,9 +114,9 @@ class CategoryCard extends StatelessWidget {
               case "2":
                 return AcademicBasedLearning();
               case "3":
-                return const TasksParents();
+                return TasksParents();
               case "4":
-                return const VideoBaseLearning();
+                return VideoBaseLearning();
             }
             return const FeaturedScreen();
           },
