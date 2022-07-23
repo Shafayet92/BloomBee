@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:register/Admin_Portal/adminhome.dart';
 import 'package:register/Home_Page/constants/color.dart';
 import 'package:register/Home_Page/constants/size.dart';
 import 'package:register/Home_Page/models/category.dart';
-import 'package:register/Home_Page/screens/course_screen.dart';
-import 'package:register/Home_Page/widgets/circle_button.dart';
 import 'package:register/Parents/Academic_Basic_Learning/academic.dart';
 import 'package:register/Parents/Image_Based_Learning/ImageBasedLearning.dart';
 import 'package:register/Parents/Parent_Tasks/tasks.dart';
-import 'package:register/Parents/Video_Based_Learning/VideoBaseLearning.dart';
+
+import 'package:register/Parents/Video_Based_Learning/mainThumnail.dart';
 
 import 'package:register/editProfile.dart';
 
@@ -116,7 +114,7 @@ class CategoryCard extends StatelessWidget {
               case "3":
                 return TasksParents();
               case "4":
-                return VideoBaseLearning();
+                return mainThumnail();
             }
             return const FeaturedScreen();
           },

@@ -49,6 +49,9 @@ dependencies:
   audioplayers: ^1.0.1
   just_audio: ^0.9.28
   video_player: ^2.4.5
+  youtube_player_flutter: ^8.1.0
+  video_thumbnail: ^0.5.2
+  cached_network_image: ^3.2.1
 flutter_native_splash:
   color: "#ffffff" # white color
   image: assets/splash.png
@@ -83,6 +86,8 @@ flutter:
     - img/
     - assets/icons/
     - img/academic/
+    - assets/thumnail/
+    - assets/audio/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
