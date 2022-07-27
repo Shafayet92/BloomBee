@@ -86,48 +86,62 @@ class _HomeScreenState extends State<HomeScreen> {
                       primary: false,
                       crossAxisCount: 2,
                       children: <Widget>[
-                        Card(
-                          //shape: RoundedRectangleBorder(8),
+                        MaterialButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ViewAllUser(),
+                              ),
+                            );
+                          },
+                          color: Colors.lightBlue.withOpacity(.2),
+                          // shape: RoundedRectangleBorder(),
+
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
 // SvgPicture.network('https://image.flaticon.com/icons/svg/1994/1904425.svg'
 // , height: 128, ),
 
-                              TextButton(
-                                  child: const Text('All Parents'),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => ViewAllUser(),
-                                      ),
-                                    );
-                                  }),
+                              Text('All Parents'),
                             ],
                           ),
                         ),
-                        Card(
+                        MaterialButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ViewAllUser(),
+                              ),
+                            );
+                          },
+
+                          color:
+                              Color.fromARGB(255, 29, 180, 9).withOpacity(.2),
                           // shape: RoundedRectangleBorder(8),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
 // SvgPicture.network('https://image.flaticon.com/icons/svg/1994/1904425.svg'
 // , height: 128, ),
-                              TextButton(
-                                  child: const Text('Set Daily Activity'),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => ViewAllUser(),
-                                      ),
-                                    );
-                                  }),
+                              Text('Set Daily Activity'),
                             ],
                           ),
                         ),
-                        Card(
+                        MaterialButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ManageActivity(),
+                              ),
+                            );
+                          },
+
+                          color:
+                              Color.fromARGB(255, 38, 240, 247).withOpacity(.1),
                           // shape: RoundedRectangleBorder(8),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -137,21 +151,21 @@ class _HomeScreenState extends State<HomeScreen> {
                               //   height: 128,
                               // ),
 
-                              TextButton(
-                                  child: const Text('Manage Tasks'),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const ManageActivity(),
-                                      ),
-                                    );
-                                  }),
+                              Text('Manage Tasks'),
                             ],
                           ),
                         ),
-                        Card(
+                        MaterialButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ViewAllUser(),
+                              ),
+                            );
+                          },
+
+                          color: Colors.lightBlue.withOpacity(.2),
                           //shape: RoundedRectangleBorder(8),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -159,20 +173,21 @@ class _HomeScreenState extends State<HomeScreen> {
 // SvgPicture.network('https://image.flaticon.com/icons/svg/1994/1904425.svg'
 // , height: 128, ),
 
-                              TextButton(
-                                  child: const Text('Check Learning Materials'),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => ViewAllUser(),
-                                      ),
-                                    );
-                                  }),
+                              Text('Check Learning Materials'),
                             ],
                           ),
                         ),
-                        Card(
+                        MaterialButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EditProfilePage(),
+                              ),
+                            );
+                          },
+
+                          color: Colors.lightBlue.withOpacity(.2),
                           //shape: RoundedRectangleBorder(8),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -180,16 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
 // SvgPicture.network('https://image.flaticon.com/icons/svg/1994/1904425.svg'
 // , height: 128, ),
 
-                              TextButton(
-                                  child: const Text('Profile'),
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => EditProfilePage(),
-                                      ),
-                                    );
-                                  }),
+                              Text('Profile'),
                             ],
                           ),
                         ),
